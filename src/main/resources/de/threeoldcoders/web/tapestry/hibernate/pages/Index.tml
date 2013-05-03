@@ -38,5 +38,26 @@
             ]
         </p>
     </p:sidebar>
+    
+    <div class="eg">
+    <table class="grid">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Password</th>
+                <th>email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr t:type="Loop" t:source="allUsers" t:value="user">
+                <td>${user.pk}</td>
+                <td>${user.name}</td>
+                <td>${user.password}</td>
+                <td>${user.email}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
 
 </html>
