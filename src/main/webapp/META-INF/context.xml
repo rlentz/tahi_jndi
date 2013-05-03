@@ -1,0 +1,9 @@
+<Context path="" reloadable="false">
+	<!-- the datasource is configured via the server.xml -->
+    <ResourceLink name="jdbc/DemoDataSource" global="jdbc/DemoDataSource" type="javax.sql.DataSource"/>
+    
+    <ResourceLink name="hibernate.connection.datasource" global="hibernate.connection.datasource" type="java.lang.String"/>
+	<ResourceLink name="hibernate.dialect" global="hibernate.dialect" type="java.lang.String"/>
+	<ResourceLink name="hibernate.show_sql" global="hibernate.show_sql" type="java.lang.String"/>
+	<ResourceLink name="hibernate.hbm2ddl.auto" global="hibernate.hbm2ddl.auto" type="java.lang.String"/>
+</Context>
