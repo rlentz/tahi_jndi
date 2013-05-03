@@ -1,0 +1,18 @@
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# Ignore other unneeded files.
+*.swp
+*~
+target/
+
+# Ignore eclipse/idea and other files
+.DS_Store
+.gradle
+.idea
+.classpath
+.project
+.settings/
+.tomcatplugin
+.metadata
