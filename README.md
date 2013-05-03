@@ -4,10 +4,9 @@ tahi_jndi
 tapestry-hibernate-jndi-demo setup for using hibernate in tapestry using tomcat or jetty. The database jndi configuration is solely done via a jndi environment.
 
 The project uses project lombok (http://projectlombok.org/), so for Eclipse/IntelliJ IDE integration install it accordingly.
-&gt;
 
 JNDI configuration for jetty6:
-- everything is configured already, just do:<br/>
+- everything is configured already (see src/test/resources/jetty-env.xml), just do:<br/>
   git clone https://github.com/rlentz/tahi_jndi.git<br/>
   cd tahi_jndi.git<br/>
   mvn clean install jetty:run<br/>
@@ -15,7 +14,7 @@ JNDI configuration for jetty6:
 
 
 JNDI configuration for tomcat6/tomcat7:
-- copy your required jdbc driver lib to TOMCAT_HOME/lib like:<br/>
+- copy your required jdbc driver lib to $TOMCAT_HOME/lib like:<br/>
   cp ~/.m2/repository/org/hsqldb/hsqldb/2.2.9/hsqldb-2.2.9.jar $TOMCAT_HOME/lib
 
 - add a datasource and your required hibernate properties inside the GlobalNamingResources tag in TOMCAT_HOME/conf/server.xml like:<br/>
