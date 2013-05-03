@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+<Configure class="org.mortbay.jetty.Server">
+    <New id="DemoTest" class="org.mortbay.jetty.plus.naming.Resource">
+        <Arg>jdbc/DemoDataSource</Arg>
+        <Arg>
+            <New class="org.hsqldb.jdbc.JDBCDataSource">
+                <Set name="database">jdbc:hsqldb:mem:demo</Set>
+                <Set name="User">sa</Set>
+                <Set name="Password">sa</Set>
+            </New>
+        </Arg>
+    </New>
+
+    <New class="org.mortbay.jetty.plus.naming.EnvEntry">
+        <Arg>hibernate.connection.datasource</Arg>
+        <Arg type="java.lang.String">java:/comp/env/jdbc/DemoDataSource</Arg>
+    </New>
+    <New class="org.mortbay.jetty.plus.naming.EnvEntry">
+        <Arg>hibernate.dialect</Arg>
+        <Arg type="java.lang.String">org.hibernate.dialect.HSQLDialect</Arg>
+    </New>
+    <New class="org.mortbay.jetty.plus.naming.EnvEntry">
+        <Arg>hibernate.show_sql</Arg>
+        <Arg type="java.lang.String">true</Arg>
+    </New>
+    <New class="org.mortbay.jetty.plus.naming.EnvEntry">
+        <Arg>hibernate.hbm2ddl.auto</Arg>
+        <Arg type="java.lang.String">create</Arg>
+    </New>
+</Configure>

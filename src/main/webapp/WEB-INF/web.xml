@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE web-app
-        PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-        "http://java.sun.com/dtd/web-app_2_3.dtd">
-<web-app>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
     <display-name>demo Tapestry 5 Application</display-name>
+    <listener>
+      <listener-class>de.threeoldcoders.web.tapestry.servlet.TapestryExecutionModeListener</listener-class>
+    </listener>
     <context-param>
-        <!-- The only significant configuration for Tapestry 5, this informs Tapestry
-of where to look for pages, components and mixins. -->
+        <!-- The only significant configuration for Tapestry 5, this informs Tapestry of where to look for pages, components and mixins. -->
         <param-name>tapestry.app-package</param-name>
         <param-value>de.threeoldcoders.web.tapestry.hibernate</param-value>
+    </context-param>
+    <context-param>
+        <param-name>tapestry-execution-mode-listener.defaultValueIfNoSystemPropertyIsDefined</param-name>
+        <param-value>DevelopmentMode</param-value>
     </context-param>
     <!--
     Specify some additional Modules for two different execution
@@ -16,16 +22,12 @@ of where to look for pages, components and mixins. -->
     Remember that the default execution mode is production
     -->
     <context-param>
-        <param-name>tapestry.development-modules</param-name>
-        <param-value>
-            de.threeoldcoders.web.tapestry.hibernate.services.DevelopmentModule
-        </param-value>
-    </context-param>
+        <param-name>tapestry.DevelopmentMode-modules</param-name>
+        <param-value>de.threeoldcoders.web.tapestry.hibernate.services.JndiSetupModule,de.threeoldcoders.web.tapestry.hibernate.services.TestDataSetupModule</param-value>
+    </context-param>    
     <context-param>
         <param-name>tapestry.qa-modules</param-name>
-        <param-value>
-            de.threeoldcoders.web.tapestry.hibernate.services.QaModule
-        </param-value>
+        <param-value>de.threeoldcoders.web.tapestry.hibernate.services.QaModule</param-value>
     </context-param>
     <filter>
         <filter-name>app</filter-name>
