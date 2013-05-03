@@ -37,5 +37,12 @@
         <filter-name>app</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    
+	<resource-ref>
+		<description>DemoDatasource Reference</description>
+		<res-ref-name>jdbc/DemoDataSource</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
 </web-app>
       
