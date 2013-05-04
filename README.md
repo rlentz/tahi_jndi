@@ -54,7 +54,7 @@ add your datasource and required hibernate properties inside the &lt;GlobalNamin
 - make sure that all your jndi settings are linked and match correctly in the webapp/META-INF/context.xml file like:
 
 ```html
-  <Context path="" reloadable="false">
+<Context path="" reloadable="false">
   <!-- the datasource is configured via the server.xml -->
   <ResourceLink name="jdbc/DemoDataSource" global="jdbc/DemoDataSource" type="javax.sql.DataSource"/>
   <ResourceLink name="hibernate.connection.datasource" global="hibernate.connection.datasource" type="java.lang.String"/>
