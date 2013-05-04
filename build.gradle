@@ -91,6 +91,7 @@ test {
 [jettyRun, jettyRunWar]*.with {
   additionalRuntimeJars = configurations.jettyRuntimeJars
   jettyConfig = file('src/test/resources/jetty-env.xml')
+  contextPath = 'demo'
   httpPort = 8080
 }
 
