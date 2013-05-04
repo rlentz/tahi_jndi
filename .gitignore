@@ -6,6 +6,7 @@
 *.swp
 *~
 target/
+build/
 
 # Ignore eclipse/idea and other files
 .DS_Store
