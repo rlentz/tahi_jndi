@@ -6,10 +6,13 @@ apply plugin: "jetty"
 
 sourceCompatibility = "1.5"
 targetCompatibility = "1.5"
-sourceEncoding = 'UTF-8'
 
 group = "de.threeoldcoders.web.tapestry.hibernate"
 version = "0.1-SNAPSHOT"
+
+tasks.withType(Compile) {
+  options.encoding = 'UTF-8'
+}
 
 repositories {
     mavenCentral()
@@ -32,6 +35,7 @@ repositories {
 
 configurations {
     provided
+    jettyRuntimeJars
 }
 
 sourceSets {
@@ -54,13 +58,16 @@ dependencies {
     compile "org.hibernate:hibernate-validator:3.1.0.GA"
 
     // This adds automatic compression of JavaScript and CSS in production mode:
-    compile "org.apache.tapestry:tapestry-yuicompressor:5.3.7"
+    // compile "org.apache.tapestry:tapestry-yuicompressor:5.3.7"
 
     // Uncomment this to add support for file uploads:
     // compile "org.apache.tapestry:tapestry-upload:5.3.7"
 
     provided "javax.servlet:servlet-api:2.5"
     provided "org.projectlombok:lombok:0.11.6"
+
+    // for jettyRun, jettyRunWar
+    jettyRuntimeJars "org.hsqldb:hsqldb:2.2.9"
 }
 
 test {
@@ -78,4 +85,12 @@ test {
     enableAssertions = true
 }
 
-// TODO: Configure execution mode for jettyRun task
+//
+// Configure jettyRun, jettyRunWar and jettyStop tasks.
+// 
+[jettyRun, jettyRunWar]*.with {
+  additionalRuntimeJars = configurations.jettyRuntimeJars
+  jettyConfig = file('src/test/resources/jetty-env.xml')
+  httpPort = 8080
+}
+
