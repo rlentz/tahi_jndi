@@ -29,6 +29,13 @@
         <param-name>tapestry.qa-modules</param-name>
         <param-value>de.threeoldcoders.web.tapestry.hibernate.services.QaModule</param-value>
     </context-param>
+    <!--
+    no test data creation in production mode, omitting TestDataSetupModule
+     -->
+    <context-param>
+        <param-name>tapestry.production-modules</param-name>
+        <param-value>de.threeoldcoders.web.tapestry.hibernate.services.JndiSetupModule</param-value>
+    </context-param>    
     <filter>
         <filter-name>app</filter-name>
         <filter-class>org.apache.tapestry5.TapestryFilter</filter-class>
