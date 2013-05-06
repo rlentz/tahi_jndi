@@ -63,3 +63,5 @@ add your datasource and required hibernate properties inside the &lt;GlobalNamin
   <ResourceLink name="hibernate.hbm2ddl.auto" global="hibernate.hbm2ddl.auto" type="java.lang.String"/>
 </Context>
 ```
+
+and then start your tomcat instance and access in your browser http://localhost:8080/demo to display hibernate test data.
